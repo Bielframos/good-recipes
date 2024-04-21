@@ -34,7 +34,7 @@ I respected the chromatic and typographic standard provided by the challenge, bu
 ### Links
 
 - Solution repository: [Github](https://github.com/Bielframos/recipe-page-with-astro)
-- See the solution: [Good Recipes](https://recipe-page-with-astro.vercel.app/)
+- See the solution: [Good Recipes](https://good-recipes-bielframos.vercel.app/)
 
 ### Built with
 
