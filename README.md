@@ -47,4 +47,5 @@ I respected the chromatic and typographic standard provided by the challenge, bu
 - Github - [Bielframos](https://github.com/Bielframos)
 - Frontend Mentor - [@Bielframos](https://www.frontendmentor.io/profile/Bielframos)
 - Twitter - [@GabrielFramos99](https://twitter.com/GabrielFramos99)
+- My website - [Gabriel França](https://www.gabrielfr.dev/)
 
