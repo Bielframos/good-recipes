@@ -1,13 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+import RecipeCard from "../components/RecipeCard.astro"
 
-
+const recipes = await getCollection("recipes")
 ---
 
 <Layout title="Good Recipes | Home">
-    <main class="grid place-content-center min-h-screen text-center">
-        <h1 class="font-serif text-2xl text-nutmeg">Good Recipes</h1>
-        <h2>What we will cook today?</h2>
-    </main>
+  <main
+    class="grid place-content-center min-h-[calc(100svh-49px)] text-center py-12 bg-gradient-to-b from-eggshell to-eggshell/0"
+  >
+    <h1 class="font-serif text-4xl text-nutmeg opacity-0 animate-scale-slide-up">
+      Good Recipes
+    </h1>
+    <h2 class="opacity-0 animate-scale-slide-up">What we will cook today?</h2>
+
+    <ul class="flex flex-wrap gap-6 mt-6 justify-center px-6 transition-all">
+      {recipes.map((recipe, index) => <RecipeCard {recipe} delayValue={index} />)}
+    </ul>
+  </main>
 </Layout>

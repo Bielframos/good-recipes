@@ -1,0 +1,22 @@
+---
+interface Props {
+  nutritionalInfo: { [key: string]: string }
+}
+
+const { nutritionalInfo } = Astro.props
+---
+
+<table>
+  <tbody>
+    {
+      Object.entries(nutritionalInfo).map(([key, value]) => {
+        return (
+          <tr>
+            <td class="first-letter:uppercase">{key}</td>
+            <td class="font-semibold text-nutmeg">{value}</td>
+          </tr>
+        )
+      })
+    }
+  </tbody>
+</table>

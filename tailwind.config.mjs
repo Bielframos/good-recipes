@@ -7,6 +7,24 @@ export default {
         sans: ["Outfit Variable", "sans-serif"],
         serif: ["Young Serif", "serif"],
       },
+      keyframes: {
+        "scale-slide-up": {
+          "0%": {
+            opacity: "0%",
+            transform: "translateY(64px)",
+          },
+          "100%": {
+            opacity: "100%",
+            transform: "translateY(0px)",
+          },
+        },
+      },
+      animation: {
+        "scale-slide-up": "scale-slide-up 0.6s ease-out 0.3s forwards",
+      },
+      backgroundImage: {
+        stripes: `url("data:image/svg+xml,%3Csvg width='40' height='1' viewBox='0 0 40 1' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v1H0z' fill='%23fbf6f1' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+      },
     },
     colors: {
       white: "#fff",
@@ -19,6 +37,6 @@ export default {
       "dark-charcoal": "hsl(24, 5%, 18%)",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }
 

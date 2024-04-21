@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets"
+import type { CollectionEntry } from "astro:content"
+import { cn } from "../lib/cn"
+
+interface Props {
+  recipe: CollectionEntry<"recipes">
+  delayValue?: number
+  class?: string
+}
+
+const { class: className, recipe, delayValue } = Astro.props
+---
+
+<li
+  class={cn(
+    "grid gap-4 auto-rows-min bg-white rounded-xl p-4 max-w-sm border border-b-4 border-nutmeg opacity-0 animate-scale-slide-up",
+    className
+  )}
+  style={{ animationDelay: `${(delayValue || 0) * 0.2}s` }}
+>
+  <Image
+    src={recipe.data.mainImage}
+    alt={recipe.data.title}
+    width={720}
+    height={405}
+    loading="eager"
+    class="aspect-video bg-cover rounded-md border-2 border-nutmeg"
+  />
+  <div class="w-full max-w-64 mx-auto">
+    <h3 class="text-nutmeg font-serif text-xl">{recipe.data.title}</h3>
+    <p class="leading-tight text-dark-charcoal/80">{recipe.data.description}</p>
+  </div>
+  <a
+    href={`/recipes/${recipe.slug}`}
+    class="text-center w-full bg-nutmeg text-white rounded-lg px-4 py-2 hover:bg-eggshell hover:text-nutmeg transition-colors"
+  >
+    View recipe
+  </a>
+</li>

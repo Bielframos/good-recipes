@@ -1,0 +1,58 @@
+---
+import { getEntry } from "astro:content"
+import Layout from "../../layouts/Layout.astro"
+import RecipeProse from "../../components/RecipeProse.astro"
+import { Image } from "astro:assets"
+
+const { slug } = Astro.params
+
+if (slug === undefined) {
+  throw new Error("Slug is requeired")
+}
+
+const entry = await getEntry("recipes", slug)
+
+if (entry === undefined) {
+  return Astro.redirect("/404")
+}
+const recipe = entry.data
+const { Content } = await entry.render()
+---
+
+<Layout title={recipe.title}>
+  <main
+    class="grid gap-6 justify-center px-6 py-12 bg-gradient-to-b from-eggshell to-eggshell/0"
+  >
+    <a href="/" class="mx-auto flex items-center gap-2 text-sm hover:underline text-nutmeg">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-arrow-left"
+        ><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg
+      >
+      Back to home
+    </a>
+    <section
+      class="w-full max-w-xl bg-white rounded-xl p-6 border border-b-4 border-nutmeg opacity-0 animate-scale-slide-up"
+    >
+      <Image
+        src={recipe.mainImage}
+        alt={recipe.title}
+        width="720"
+        height="405"
+        loading="eager"
+        class="aspect-video bg-cover rounded-lg w-full border-light-gray"
+      />
+      <RecipeProse>
+        <Content />
+      </RecipeProse>
+    </section>
+  </main>
+</Layout>
