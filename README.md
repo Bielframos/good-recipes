@@ -27,9 +27,9 @@ I respected the chromatic and typographic standard provided by the challenge, bu
 ### Screenshot
 
 ![Home desktop](/images/home-desktop.jpeg)
-![Home mobile](/images/home-mobile.jpeg)
-![Recipe page desktop](/images/recipe-page-desktop.jpeg)
-![Recipe page mobile](/images/recipe-page-mobile.jpeg)
+![Home mobile](/images/home-mobile.png)
+![Recipe page desktop](/images/recipe-page-desktop.png)
+![Recipe page mobile](/images/recipe-page-mobile.png)
 
 ### Links
 
